@@ -52,19 +52,11 @@ void crear_lista(tLista * l){
 **/
 void l_insertar(tLista l, tPosicion p, tElemento e){
 
-    /**
+
         tPosicion nodoNuevo= (tPosicion) malloc(sizeof(tPosicion));
         nodoNuevo->elemento=e;
         nodoNuevo->siguiente=p;
         p->siguiente=nodoNuevo;
-        **/
-    tPosicion celdaNueva=(tPosicion) malloc(sizeof(tPosicion));
-    celdaNueva->elemento=e;
-
-    tPosicion celdaDerecha=p->siguiente;
-
-    p->siguiente=celdaNueva;
-    celdaNueva->siguiente=celdaDerecha;
 
 }
 
