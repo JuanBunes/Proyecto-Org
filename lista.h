@@ -21,7 +21,9 @@ typedef void * tElemento;
  Una referencia a la lista creada es referenciada en *L.
 **/
 extern void crear_lista(tLista * l){
-    l=null; //Aseguro que el apuntador recibido por parametro apunta a null
+
+    l=null;//Crea la lista que apunta a un nulo
+
 }
 
 /**
@@ -29,7 +31,17 @@ extern void crear_lista(tLista * l){
  Con L = A,B,C,D y la posición P direccionando C, luego:
  L' = A,B,E,C,D
 **/
-extern void l_insertar(tLista l, tPosicion p, tElemento e);
+extern void l_insertar(tLista l, tPosicion p, tElemento e){
+
+    if(l_longitud(l)==0){
+        l=p;
+    }else{
+       tPosicion ultimoNodo= (tPosicion*) malloc(sizeof(tPosicion));
+       ultimoNodo=l_ultima(l);
+       ultimoNodo->siguiente=p;
+    }
+
+}
 
 /**
  Elimina la celda P de L. El elemento almacenado en la posición P es eliminado mediante la función fEliminar parametrizada.
@@ -46,41 +58,129 @@ extern void l_destruir(tLista * l, void (*fEliminar)(tElemento));
  Recupera y retorna el elemento en la posición P.
  Si P es fin(L), finaliza indicando LST_POSICION_INVALIDA.
 **/
-extern tElemento l_recuperar(tLista l, tPosicion p);
+extern tElemento l_recuperar(tLista l, tPosicion p){
+
+    if(l_ultima(l)==p){
+        //No se como tirar excepsiones lst Jejox
+    }else{
+        return p.elemento;
+    }
+
+}
 
 /**
  Recupera y retorna la primera posición de L.
  Si L es vacía, primera(L) = ultima(L) = fin(L).
 **/
-extern tPosicion l_primera(tLista l);
+extern tPosicion l_primera(tLista l){
+
+    if(l_longitud(l)==0){
+        return l_fin(l);
+    }else{
+        tPosicion primerNodo= (tPosicion*) malloc(sizeof(tPosicion));
+        primerNodo=(tPosicion) l;
+        return primerNodo;
+    }
+
+}
 
 /**
  Recupera y retorna la posición siguiente a P en L.
  Si P es fin(L), finaliza indicando LST_NO_EXISTE_SIGUIENTE.
 **/
-extern tPosicion l_siguiente(tLista l, tPosicion p);
+extern tPosicion l_siguiente(tLista l, tPosicion p){
+
+    if(l_fin(l)==p){
+        //No se como tirar excepsiones lst Jejox LST_NO_EXISTE_SIGUIENTE
+    }else{
+        tPosicion nodoAuxSiguiente= (tPosicion*) malloc(sizeof(tPosicion));
+        nodoAuxSiguiente=p->siguiente;
+        return nodoAuxSiguiente;
+    }
+
+}
 
 /**
  Recupera y retorna la posición anterior a P en L.
  Si P es primera(L), finaliza indicando LST_NO_EXISTE_ANTERIOR.
 **/
-extern tPosicion l_anterior(tLista l, tPosicion p);
+extern tPosicion l_anterior(tLista l, tPosicion p){
+
+    if(l_primera(l)==p){
+        //No se como tirar excepsiones lst Jejox LST_NO_EXISTE_ANTERIOR
+    }else{
+        tPosicion nodoBuscador= (tPosicion*) malloc(sizeof(tPosicion));
+        nodoBuscador=l_primera(l);
+
+        while(nodoBuscador!=null){
+            if(nodoBuscador->siguiente==p){
+                return nodoBuscador;
+            }
+            nodoViajante=nodoViajante->siguiente;
+        }
+
+        //No se como tirar excepsiones lst Jejox LST_POSICION_INVALIDA
+    }
+
+}
 
  /**
  Recupera y retorna la última posición de L.
  Si L es vacía, primera(L) = ultima(L) = fin(L).
 **/
-extern tPosicion l_ultima(tLista l);
+extern tPosicion l_ultima(tLista l){
+
+    if(l_longitud(l)==0){
+        return l_fin(l);
+    }else{
+        tPosicion nodoViajante= (tPosicion*) malloc(sizeof(tPosicion));
+        nodoViajante=l_primera(l);
+
+        while(nodoViajante->siguiente!=null){
+            nodoViajante=nodoViajante->siguiente;
+        }
+
+        return nodoViajante;
+    }
+
+}
 
  /**
  Recupera y retorna la posición fin de L.
  Si L es vacía, primera(L) = ultima(L) = fin(L).
 **/
-extern tPosicion l_fin(tLista l);
+extern tPosicion l_fin(tLista l){
+
+    if(l_longitud(l)==0){
+        return crear_lista(l);
+    }else{
+        tPosicion nodoViajante= (tPosicion*) malloc(sizeof(tPosicion));
+        nodoViajante=l_primera(l);
+
+        while(nodoViajante!=null){
+            nodoViajante=nodoViajante->siguiente;
+        }
+
+        return nodoViajante;
+    }
+
+}
 
 /**
  Retorna la longitud actual de la lista.
 **/
-extern int l_longitud(tLista l);
+extern int l_longitud(tLista l){
+
+    int contador=0;
+
+    tPosicion nodoViajante= (tPosicion*) malloc(sizeof(tPosicion));
+    nodoViajante=(tPosicion) l;
+
+    while(nodoViajante!=null){
+        contador=contador+1;
+        nodoViajante=nodoViajante->siguiente;
+    }
+
+}
 
 #endif // LISTA_H_INCLUDED
