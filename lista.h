@@ -34,11 +34,12 @@ extern void crear_lista(tLista * l){
 extern void l_insertar(tLista l, tPosicion p, tElemento e){
 
     if(l_longitud(l)==0){
-        l=p;
+        *l->elemento=e;
     }else{
-       tPosicion ultimoNodo= (tPosicion*) malloc(sizeof(tPosicion));
-       ultimoNodo=l_ultima(l);
-       ultimoNodo->siguiente=p;
+       tPosicion nodoAuxiliar= (tPosicion*) malloc(sizeof(tPosicion));
+       nodoAuxiliar=p;
+       *p->elemento=e;
+        *p->siguiente=nodoAuxiliar;
     }
 
 }
