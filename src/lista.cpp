@@ -52,17 +52,10 @@ void crear_lista(tLista * l){
 **/
 void l_insertar(tLista l, tPosicion p, tElemento e){
 
-        struct celda *nodo;
-        nodo=(struct celda*) malloc(sizeof(struct celda));
-        nodo->elemento=e;
-        nodo->siguiente=p->siguiente;
-
-        /**
-        tPosicion nodoAuxiliar= (tPosicion*) malloc(sizeof(tPosicion));
-        nodoAuxiliar=p;
-        *p->elemento=e;
-        *p->siguiente=nodoAuxiliar;
-        **/
+        tPosicion nodoNuevo= (tPosicion) malloc(sizeof(tPosicion));
+        nodoNuevo->elemento=e;
+        nodoNuevo->siguiente=p->siguiente;
+        p->siguiente=nodoNuevo;
 
 
 }
@@ -84,10 +77,10 @@ void l_destruir(tLista * l, void (*fEliminar)(tElemento));
 **/
 tElemento l_recuperar(tLista l, tPosicion p){
 
-    if(l_ultima(l)==p){
-        //No se como tirar excepsiones lst Jejox
+    if(l_fin(l)==p){
+        exit(4);
     }else{
-        return p->elemento;
+        return p->siguiente->elemento;
     }
 
 }
@@ -145,7 +138,7 @@ tPosicion l_anterior(tLista l, tPosicion p){
             }
             nodoViajante=nodoViajante->siguiente;
         }
-
+        free(nodoViajante);
         exit(4);
     }
 
@@ -223,10 +216,15 @@ int main()
 
 
     crear_lista(&lista);
-    //l_insertar(lista,pos,NULL);
 
-    int cant=l_longitud(lista);
-    printf("longitud: %i",cant);
+    int num=9;
+    l_insertar(lista,lista,(int*)9);
+
+
+    //int cant=l_longitud(lista);
+    //printf("longitud: %i",cant);
+
+    printf("elemento: %i",l_recuperar(lista,lista));
 
     printf("fin");
     return 0;
