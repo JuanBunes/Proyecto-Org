@@ -20,7 +20,9 @@ typedef void * tElemento;
  Inicializa una lista vacía.
  Una referencia a la lista creada es referenciada en *L.
 **/
-extern void crear_lista(tLista * l);
+extern void crear_lista(tLista * l){
+    l=null; //Aseguro que el apuntador recibido por parametro apunta a null
+}
 
 /**
  Inserta el elemento E, en la posición P, en L.
