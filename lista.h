@@ -63,7 +63,7 @@ extern tElemento l_recuperar(tLista l, tPosicion p){
     if(l_ultima(l)==p){
         //No se como tirar excepsiones lst Jejox
     }else{
-        return p.elemento;
+        return p->elemento;
     }
 
 }
