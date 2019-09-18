@@ -1,5 +1,7 @@
+
 #ifndef LISTA_H_INCLUDED
 #define LISTA_H_INCLUDED
+
 
 #define LST_ELEMENTO_NULO           1
 #define LST_NO_EXISTE_SIGUIENTE     2
