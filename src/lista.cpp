@@ -52,11 +52,19 @@ void crear_lista(tLista * l){
 **/
 void l_insertar(tLista l, tPosicion p, tElemento e){
 
+    /**
         tPosicion nodoNuevo= (tPosicion) malloc(sizeof(tPosicion));
         nodoNuevo->elemento=e;
-        nodoNuevo->siguiente=p->siguiente;
+        nodoNuevo->siguiente=p;
         p->siguiente=nodoNuevo;
+        **/
+    tPosicion celdaNueva=(tPosicion) malloc(sizeof(tPosicion));
+    celdaNueva->elemento=e;
 
+    tPosicion celdaDerecha=p->siguiente;
+
+    p->siguiente=celdaNueva;
+    celdaNueva->siguiente=celdaDerecha;
 
 }
 
@@ -192,13 +200,16 @@ int l_longitud(tLista l){
     int contador=0;
 
     tPosicion nodoViajante= (tPosicion) malloc(sizeof(tPosicion));
-    nodoViajante=l->siguiente;
+    nodoViajante=l;
 
 
-    while(nodoViajante!=NULL){
+    while(nodoViajante->siguiente!=NULL){
         contador=contador+1;
         nodoViajante=nodoViajante->siguiente;
     }
+    free(nodoViajante);
+
+    return contador;
 
 }
 
@@ -217,14 +228,14 @@ int main()
 
     crear_lista(&lista);
 
-    int num=9;
+
     l_insertar(lista,lista,(int*)9);
 
 
     //int cant=l_longitud(lista);
     //printf("longitud: %i",cant);
 
-    printf("elemento: %i",l_recuperar(lista,lista));
+   // printf("elemento: %i",(int*)l_recuperar(lista,lista));
 
     printf("fin");
     return 0;
