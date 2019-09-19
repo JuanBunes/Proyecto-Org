@@ -36,7 +36,6 @@
 		<Unit filename="include/lista.h" />
 		<Unit filename="main.c">
 			<Option compilerVar="CC" />
-			<Option compile="0" />
 		</Unit>
 		<Unit filename="src/lista.cpp" />
 		<Extensions>
