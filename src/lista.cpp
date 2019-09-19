@@ -10,6 +10,8 @@
 #define LST_POSICION_INVALIDA       4
 #define LST_ERROR_MEMORIA           5
 
+//Bokita el + grande
+
 struct celda{
     void * elemento;
     struct celda * siguiente;
