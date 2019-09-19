@@ -39,8 +39,9 @@ extern int l_longitud(tLista l);
 **/
 void crear_lista(tLista * l){
 
-        tLista nuevalista=(tLista) malloc(sizeof(tLista));
+        celda* nuevalista=(celda*) malloc(sizeof(struct celda));
         l=&nuevalista;
+        //int x=12;
         nuevalista->elemento=NULL;//Crea centinela
         nuevalista->siguiente=NULL;
 }
@@ -53,10 +54,19 @@ void crear_lista(tLista * l){
 void l_insertar(tLista l, tPosicion p, tElemento e){
 
 
-        tPosicion nodoNuevo= (tPosicion) malloc(sizeof(tPosicion));
+        celda* nodoNuevo= (celda*) malloc(sizeof(struct celda));
         nodoNuevo->elemento=e;
-        nodoNuevo->siguiente=p;
-        p->siguiente=nodoNuevo;
+
+        if(p->elemento==NULL){
+            nodoNuevo->siguiente=NULL;
+            l->siguiente=nodoNuevo;
+        }
+
+        else{
+            nodoNuevo->siguiente=p;
+            p->siguiente=nodoNuevo;
+        }
+
 
 }
 
@@ -77,7 +87,7 @@ void l_destruir(tLista * l, void (*fEliminar)(tElemento));
 **/
 tElemento l_recuperar(tLista l, tPosicion p){
 
-    if(l_fin(l)==p){
+    if(l==p){//if(l_fin(l)==p){
         exit(4);
     }else{
         return p->siguiente->elemento;
@@ -94,8 +104,8 @@ tPosicion l_primera(tLista l){
     if(l_longitud(l)==0){
         return l_fin(l);
     }else{
-        tPosicion primerNodo= (tPosicion) malloc(sizeof(tPosicion));
-        primerNodo=(tPosicion) l;
+        tPosicion primerNodo= (tPosicion) malloc(sizeof(struct celda));
+        primerNodo=(tPosicion) l->siguiente;
         return primerNodo;
     }
 
@@ -110,7 +120,7 @@ tPosicion l_siguiente(tLista l, tPosicion p){
     if(l_fin(l)==p){
         exit(2);
     }else{
-        tPosicion nodoAuxSiguiente= (tPosicion) malloc(sizeof(tPosicion));
+        tPosicion nodoAuxSiguiente= (tPosicion) malloc(sizeof(struct celda));
         nodoAuxSiguiente=p->siguiente;
         return nodoAuxSiguiente;
     }
@@ -128,8 +138,8 @@ tPosicion l_anterior(tLista l, tPosicion p){
         exit(3);
     }else{
 
-        tPosicion nodoViajante= (tPosicion) malloc(sizeof(tPosicion));
-        tPosicion nodoBuscador= (tPosicion) malloc(sizeof(tPosicion));
+        tPosicion nodoViajante= (tPosicion) malloc(sizeof(struct celda));
+        tPosicion nodoBuscador= (tPosicion) malloc(sizeof(struct celda));
         nodoBuscador=l_primera(l);
 
         while(nodoBuscador!=NULL){
@@ -154,7 +164,7 @@ tPosicion l_ultima(tLista l){
         return l_fin(l);
     }else{
 
-        tPosicion nodoViajante= (tPosicion) malloc(sizeof(tPosicion));
+        tPosicion nodoViajante= (tPosicion) malloc(sizeof(struct celda));
         nodoViajante=l_primera(l);
 
         while(nodoViajante->siguiente!=NULL){
@@ -172,10 +182,13 @@ tPosicion l_ultima(tLista l){
 **/
 tPosicion l_fin(tLista l){
 
+        if(l_longitud(l)==0){
+            exit(3);
+        }
         tPosicion nodoViajante= (tPosicion) malloc(sizeof(tPosicion));
-        nodoViajante=l_primera(l);
+        nodoViajante=l;
 
-        while(nodoViajante!=NULL){
+        while(nodoViajante->siguiente!=NULL){
             nodoViajante=nodoViajante->siguiente;
         }
 
@@ -191,7 +204,7 @@ int l_longitud(tLista l){
 
     int contador=0;
 
-    tPosicion nodoViajante= (tPosicion) malloc(sizeof(tPosicion));
+    tPosicion nodoViajante= (tPosicion) malloc(sizeof(struct celda));
     nodoViajante=l;
 
 
@@ -220,14 +233,17 @@ int main()
 
     crear_lista(&lista);
 
-
-    l_insertar(lista,lista,(int*)9);
+    int *num;
+    int x=9;
+    num=&x;
+    printf("fin \n");
+    l_insertar(lista,lista,&x);
 
 
     //int cant=l_longitud(lista);
     //printf("longitud: %i",cant);
 
-   // printf("elemento: %i",(int*)l_recuperar(lista,lista));
+    printf("elemento: %i \n",(int)l_fin(lista));
 
     printf("fin");
     return 0;
