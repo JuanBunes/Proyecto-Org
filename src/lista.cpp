@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <stddef.h>
+#include <lista.h>
 #ifndef LISTA_H_INCLUDED
 #define LISTA_H_INCLUDED
 
@@ -10,7 +11,6 @@
 #define LST_POSICION_INVALIDA       4
 #define LST_ERROR_MEMORIA           5
 
-//Bokita el + grande
 
 struct celda{
     void * elemento;
@@ -23,29 +23,18 @@ typedef void * tElemento;
 
 
 
-extern void crear_lista(tLista * l);
-extern void l_insertar(tLista l, tPosicion p, tElemento e);
-extern void l_eliminar(tLista l, tPosicion p, void (*fEliminar)(tElemento));
-extern void l_destruir(tLista * l, void (*fEliminar)(tElemento));
-extern tElemento l_recuperar(tLista l, tPosicion p);
-extern tPosicion l_primera(tLista l);
-extern tPosicion l_siguiente(tLista l, tPosicion p);
-extern tPosicion l_anterior(tLista l, tPosicion p);
-extern tPosicion l_ultima(tLista l);
-extern tPosicion l_fin(tLista l);
-extern int l_longitud(tLista l);
-
-
 /**
  Inicializa una lista vacía.
  Una referencia a la lista creada es referenciada en *L.
 **/
 void crear_lista(tLista * l){
 
-        tPosicion punteroALista=(tPosicion) malloc(sizeof(struct celda));
-        celda nuevalista;
+        tLista lista=(tLista) malloc(sizeof(struct celda));
+        lista->elemento=NULL;
+        lista->siguiente=NULL;
 
-        l=&punteroALista;
+
+        l=&lista;
 }
 
 /**
@@ -264,13 +253,14 @@ int l_longitud(tLista l){
 
 }
 
-int main()
+int main2()
 {
     tLista  lista;
+    crear_lista (&lista);
     lista->elemento=NULL;
     lista->siguiente=NULL;
 
-    crear_lista (&lista);
+
     printf("inicio \n");
 
     int *num;

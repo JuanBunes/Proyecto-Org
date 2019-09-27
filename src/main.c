@@ -3,8 +3,8 @@
 #include <lista.h>
 
 
-int main3()
-{/*
+int main()
+{
     tLista  lista;
     crear_lista (&lista);
     lista->elemento=NULL;
@@ -38,6 +38,6 @@ int main3()
 
     k=l_longitud(lista);
     printf("3: %i", k);
-*/
+
     return 0;
 }

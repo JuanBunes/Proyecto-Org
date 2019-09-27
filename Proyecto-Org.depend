@@ -18,12 +18,21 @@
 	<stdio.h>
 	<stdlib.h>
 
-1568852914 source:c:\users\hp\desktop\proyectos\github\proyecto-org\main.c
+1569508410 source:c:\users\hp\desktop\proyectos\github\proyecto-org\main.c
 	<stdio.h>
 	<stdlib.h>
+	<lista.h>
 
-1568904181 source:c:\users\hp\desktop\proyectos\github\proyecto-org\src\lista.cpp
+1569508953 source:c:\users\hp\desktop\proyectos\github\proyecto-org\src\lista.cpp
 	<stdio.h>
 	<stdlib.h>
 	<stddef.h>
+	<lista.h>
+
+1568852914 c:\users\hp\desktop\proyectos\github\proyecto-org\include\lista.h
+
+1569509296 source:c:\users\hp\desktop\proyectos\github\proyecto-org\src\main.c
+	<stdio.h>
+	<stdlib.h>
+	<lista.h>
 
