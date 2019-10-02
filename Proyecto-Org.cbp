@@ -33,6 +33,7 @@
 		<Compiler>
 			<Add option="-Wall" />
 		</Compiler>
+		<Unit filename="include/arbol.h" />
 		<Unit filename="include/lista.h" />
 		<Unit filename="include/main.h" />
 		<Unit filename="main.c">
