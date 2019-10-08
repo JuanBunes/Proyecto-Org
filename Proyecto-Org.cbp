@@ -5,6 +5,7 @@
 		<Option title="Proyecto-Org" />
 		<Option pch_mode="2" />
 		<Option compiler="gcc" />
+		<Option virtualFolders="include\;" />
 		<Build>
 			<Target title="Debug">
 				<Option output="bin/Debug/Proyecto-Org" prefix_auto="1" extension_auto="1" />
@@ -35,16 +36,18 @@
 		</Compiler>
 		<Unit filename="include/arbol.h" />
 		<Unit filename="include/lista.h" />
-		<Unit filename="include/main.h" />
 		<Unit filename="main.c">
 			<Option compilerVar="CC" />
 		</Unit>
 		<Unit filename="src/arbol.c">
 			<Option compilerVar="CC" />
 		</Unit>
-		<Unit filename="src/lista.cpp" />
+		<Unit filename="src/lista.c">
+			<Option compilerVar="CC" />
+		</Unit>
 		<Unit filename="src/main.c">
 			<Option compilerVar="CC" />
+			<Option virtualFolder="include/" />
 		</Unit>
 		<Extensions>
 			<code_completion />
