@@ -1,6 +1,9 @@
 #ifndef ARBOL_H_INCLUDED
 #define ARBOL_H_INCLUDED
 
+#include <stdio.h>
+#include <stdlib.h>
+#include <stddef.h>
 #include <lista.h>
 
 #define ARB_OPERACION_INVALIDA      10
@@ -67,8 +70,8 @@ tNodo a_insertar(tArbol a, tNodo np, tNodo nh, tElemento e){
     tNodo nodoInsertar=(tNodo) malloc(sizeof(struct nodo));
     nodoInsertar->elemento=e;
 
-    *tLista hijosDeNP;
-    hijosDeNP=np->&hijos;
+    tLista hijosDeNP;
+    hijosDeNP=np->hijos;
 
     if(nh==NULL){ //Caso el hermano es nulo
         tNodo nodoInsertar=(tNodo) malloc(sizeof(struct nodo));
@@ -91,6 +94,7 @@ tNodo a_insertar(tArbol a, tNodo np, tNodo nh, tElemento e){
     }
 
     return nodoInsertar;
+
 
 }
 

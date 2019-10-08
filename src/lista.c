@@ -139,8 +139,6 @@ tPosicion l_primera(tLista l){
 
     }
 
-}
-
 /**
  Recupera y retorna la posición siguiente a P en L.
  Si P es fin(L), finaliza indicando LST_NO_EXISTE_SIGUIENTE.

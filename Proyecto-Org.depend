@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1570044853 source:f:\users\franc\desktop\cosas varias\project codeblocks c\github\proyecto-org\main.c
+1570555332 source:f:\users\franc\desktop\cosas varias\project codeblocks c\github\proyecto-org\main.c
 	<stdio.h>
 	<stdlib.h>
 	<lista.h>
@@ -42,5 +42,11 @@
 1570044853 source:f:\users\franc\desktop\cosas varias\project codeblocks c\github\proyecto-org\src\main.c
 	<stdio.h>
 	<stdlib.h>
+	<lista.h>
+
+1570555771 source:f:\users\franc\desktop\cosas varias\project codeblocks c\github\proyecto-org\src\lista.c
+	<stdio.h>
+	<stdlib.h>
+	<stddef.h>
 	<lista.h>
 
