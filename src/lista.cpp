@@ -73,7 +73,7 @@ void l_eliminar(tLista l, tPosicion p, void (*fEliminar)(tElemento)){
 
     if(l_fin(l)==p){
 
-        exit(4);
+        exit(LST_POSICION_INVALIDA);
 
     }else{
 
@@ -113,7 +113,7 @@ tElemento l_recuperar(tLista l, tPosicion p){
 
     if(NULL==p){
 
-        exit(4);
+        exit(LST_POSICION_INVALIDA);
 
     }else{
 
@@ -149,7 +149,7 @@ tPosicion l_siguiente(tLista l, tPosicion p){
 
     if(l_fin(l)==p){
 
-        exit(2);
+        exit(LST_NO_EXISTE_SIGUIENTE);
 
     }else{
 
@@ -170,7 +170,7 @@ tPosicion l_anterior(tLista l, tPosicion p){
 
     if(l->siguiente==p){
 
-        exit(3);
+        exit(LST_NO_EXISTE_ANTERIOR);
 
     }else{
 
@@ -185,7 +185,7 @@ tPosicion l_anterior(tLista l, tPosicion p){
         }
 
         free(nodoViajante); //Se libera el espacio en memoria del nodoViajante
-        exit(4); //Si llega aca significa que no encontro la posicion en la lista, asique tira excepcion
+        exit(LST_POSICION_INVALIDA); //Si llega aca significa que no encontro la posicion en la lista, asique tira excepcion
     }
 
 }

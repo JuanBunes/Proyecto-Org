@@ -39,6 +39,9 @@
 		<Unit filename="main.c">
 			<Option compilerVar="CC" />
 		</Unit>
+		<Unit filename="src/arbol.c">
+			<Option compilerVar="CC" />
+		</Unit>
 		<Unit filename="src/lista.cpp" />
 		<Unit filename="src/main.c">
 			<Option compilerVar="CC" />
