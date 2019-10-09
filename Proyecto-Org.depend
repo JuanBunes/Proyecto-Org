@@ -40,13 +40,13 @@
 	<stdlib.h>
 	<lista.h>
 
-1570636240 source:f:\users\franc\desktop\cosas varias\project codeblocks c\github\proyecto-org\src\main.c
+1570636407 source:f:\users\franc\desktop\cosas varias\project codeblocks c\github\proyecto-org\src\main.c
 	<stdio.h>
 	<stdlib.h>
 	"lista.h"
 	"arbol.h"
 
-1570633879 source:f:\users\franc\desktop\cosas varias\project codeblocks c\github\proyecto-org\src\lista.c
+1570636723 source:f:\users\franc\desktop\cosas varias\project codeblocks c\github\proyecto-org\src\lista.c
 	<stdio.h>
 	<stdlib.h>
 	<stddef.h>
@@ -54,4 +54,9 @@
 
 1570552642 f:\users\franc\desktop\cosas varias\project codeblocks c\github\proyecto-org\include\arbol.h
 	<lista.h>
+
+1570552642 source:f:\users\franc\desktop\cosas varias\project codeblocks c\github\proyecto-org\include\arbol.h
+	<lista.h>
+
+1570555456 source:f:\users\franc\desktop\cosas varias\project codeblocks c\github\proyecto-org\include\lista.h
 

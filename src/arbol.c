@@ -8,18 +8,6 @@
 #define ARB_POSICION_INVALIDA       11
 #define ARB_ERROR_MEMORIA           12
 
-struct nodo{
-    tElemento elemento;
-    struct nodo * padre;
-    tLista hijos;
-};
-
-struct arbol{
-    struct nodo * raiz;
-};
-
-typedef struct nodo * tNodo;
-typedef struct arbol * tArbol;
 
 
 /**
@@ -47,7 +35,7 @@ void crear_raiz(tArbol a, tElemento e){
     }
 
     tNodo nodoRaiz=(tNodo) malloc(sizeof(struct nodo));
-    crear_lista(&(r->hijos)); //no se como importar las operaciones de lista
+    crear_lista(&(nodoRaiz->hijos)); //no se como importar las operaciones de lista
 
     nodoRaiz->elemento=e;
     nodoRaiz->padre=NULL;
@@ -62,6 +50,8 @@ void crear_raiz(tArbol a, tElemento e){
  Si NH no corresponde a un nodo hijo de NP, finaliza indicando ARB_POSICION_INVALIDA.
  NP direcciona al nodo padre, mientras NH al nodo hermano derecho del nuevo nodo a insertar.
 **/
+
+
 tNodo a_insertar(tArbol a, tNodo np, tNodo nh, tElemento e){
 
     tNodo nodoInsertar=(tNodo) malloc(sizeof(struct nodo));
@@ -77,6 +67,7 @@ tNodo a_insertar(tArbol a, tNodo np, tNodo nh, tElemento e){
         l_insertar(hijosDeNP,l_ultima(hijosDeNP),e);
     }
 
+
     while(/**recorrer la lista hasta encontrar nh**/);
 
     if(/**no se encontro nh**/){
@@ -86,11 +77,11 @@ tNodo a_insertar(tArbol a, tNodo np, tNodo nh, tElemento e){
 
         /**ponerlo a la izquierda de NH**/
     }
-
     return nodoInsertar;
 
 
 }
+
 
 
 

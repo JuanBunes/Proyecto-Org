@@ -12,16 +12,6 @@
 #define LST_ERROR_MEMORIA           5
 
 
-struct celda{
-    void * elemento;
-    struct celda * siguiente;
-};
-
-typedef struct celda * tLista;
-typedef struct celda * tPosicion;
-typedef void * tElemento;
-
-
 
 /**
  Inicializa una lista vacía.
