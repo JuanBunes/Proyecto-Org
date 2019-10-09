@@ -67,7 +67,6 @@ tNodo a_insertar(tArbol a, tNodo np, tNodo nh, tElemento e){
         l_insertar(hijosDeNP,l_ultima(hijosDeNP),e);
     }
 
-
     while(/**recorrer la lista hasta encontrar nh**/);
 
     if(/**no se encontro nh**/){
@@ -77,6 +76,8 @@ tNodo a_insertar(tArbol a, tNodo np, tNodo nh, tElemento e){
 
         /**ponerlo a la izquierda de NH**/
     }
+
+
     return nodoInsertar;
 
 
@@ -102,7 +103,7 @@ void a_eliminar(tArbol a, tNodo n, void (*fEliminar)(tElemento)){
 **/
 void a_destruir(tArbol * a, void (*fEliminar)(tElemento)){
     //recorre en postOrden
-    postOrden(a,a->raiz)
+    postOrden(a,a->raiz);
 
 }
 
