@@ -7,6 +7,14 @@
 
 int main()
 {
+    tArbol arbol;
+    crear_arbol(&arbol);
+    crear_raiz(arbol,1);
+    printf("inicio \n");
+    printf("raiz:  %i \n",a_recuperar(arbol,a_raiz(arbol)));
+
+
+    /**
     tLista  lista;
     crear_lista (&lista);
     lista->elemento=NULL;
@@ -40,6 +48,9 @@ int main()
 
     k=l_longitud(lista);
     printf("3: %i", k);
+    **/
+
+
 
     return 0;
 }
