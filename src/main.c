@@ -5,7 +5,7 @@
 
 
 
-int main2()
+int main()
 {
     tLista  lista;
     crear_lista (&lista);

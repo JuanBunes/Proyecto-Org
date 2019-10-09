@@ -42,7 +42,7 @@ Si A no es vacío, finaliza indicando ARB_OPERACION_INVALIDA.
 void crear_raiz(tArbol a, tElemento e){
 
 
-    if(a->raiz==NULL){
+    if(a->raiz!=NULL){
         exit(ARB_OPERACION_INVALIDA);
     }
 
