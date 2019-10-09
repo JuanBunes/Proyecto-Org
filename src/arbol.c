@@ -1,10 +1,8 @@
-#ifndef ARBOL_H_INCLUDED
-#define ARBOL_H_INCLUDED
-
 #include <stdio.h>
 #include <stdlib.h>
 #include <stddef.h>
-#include <lista.h>
+#include "lista.h"
+#include "arbol.h"
 
 #define ARB_OPERACION_INVALIDA      10
 #define ARB_POSICION_INVALIDA       11
@@ -31,8 +29,7 @@ Una referencia al árbol creado es referenciado en *A.
 void crear_arbol(tArbol * a){
 
     tArbol arbol=(tArbol) malloc(sizeof(struct arbol));
-
-
+    arbol->raiz=NULL;
     a=&arbol;
 
 
@@ -44,13 +41,13 @@ Si A no es vacío, finaliza indicando ARB_OPERACION_INVALIDA.
 **/
 void crear_raiz(tArbol a, tElemento e){
 
+
     if(a->raiz==NULL){
         exit(ARB_OPERACION_INVALIDA);
     }
 
     tNodo nodoRaiz=(tNodo) malloc(sizeof(struct nodo));
-    tLista listaHijos;
-    crear_lista(listaHijos); //no se como importar las operaciones de lista
+    crear_lista(&(r->hijos)); //no se como importar las operaciones de lista
 
     nodoRaiz->elemento=e;
     nodoRaiz->padre=NULL;
@@ -69,15 +66,14 @@ tNodo a_insertar(tArbol a, tNodo np, tNodo nh, tElemento e){
 
     tNodo nodoInsertar=(tNodo) malloc(sizeof(struct nodo));
     nodoInsertar->elemento=e;
+    nodoInsertar->padre=np;
+    crear_lista(&nodoInsertar->hijos);
+
 
     tLista hijosDeNP;
     hijosDeNP=np->hijos;
 
     if(nh==NULL){ //Caso el hermano es nulo
-        tNodo nodoInsertar=(tNodo) malloc(sizeof(struct nodo));
-        nodoInsertar->elemento=e;
-        nodoInsertar->padre=np;
-
         l_insertar(hijosDeNP,l_ultima(hijosDeNP),e);
     }
 
@@ -87,9 +83,7 @@ tNodo a_insertar(tArbol a, tNodo np, tNodo nh, tElemento e){
         exit(ARB_POSICION_INVALIDA);
     }
     else/**se encontro nh**/{
-        tNodo nodoInsertar=(tNodo) malloc(sizeof(struct nodo));
-        nodoInsertar->elemento=e;
-        nodoInsertar->padre=np;
+
         /**ponerlo a la izquierda de NH**/
     }
 
@@ -158,6 +152,3 @@ void a_sub_arbol(tArbol a, tNodo n, tArbol * sa){
 }
 
 
-
-
-#endif // ARBOL_H_INCLUDED

@@ -250,7 +250,7 @@ int l_longitud(tLista l){
     return contador;
 
 }
-
+/*
 int main2()
 {
     tLista  lista;
@@ -289,6 +289,7 @@ int main2()
 
     return 0;
 }
+*/
 
 
 #endif // LISTA_H_INCLUDED

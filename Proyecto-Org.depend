@@ -1,8 +1,9 @@
 # depslib dependency file v1.0
-1570555332 source:f:\users\franc\desktop\cosas varias\project codeblocks c\github\proyecto-org\main.c
+1570634053 source:f:\users\franc\desktop\cosas varias\project codeblocks c\github\proyecto-org\main.c
 	<stdio.h>
 	<stdlib.h>
-	<lista.h>
+	"lista.h"
+	"arbol.h"
 
 1570554405 source:f:\users\franc\desktop\cosas varias\project codeblocks c\github\proyecto-org\src\lista.cpp
 	<stdio.h>
@@ -39,14 +40,18 @@
 	<stdlib.h>
 	<lista.h>
 
-1570044853 source:f:\users\franc\desktop\cosas varias\project codeblocks c\github\proyecto-org\src\main.c
+1570634059 source:f:\users\franc\desktop\cosas varias\project codeblocks c\github\proyecto-org\src\main.c
 	<stdio.h>
 	<stdlib.h>
-	<lista.h>
+	"lista.h"
+	"arbol.h"
 
-1570555771 source:f:\users\franc\desktop\cosas varias\project codeblocks c\github\proyecto-org\src\lista.c
+1570633879 source:f:\users\franc\desktop\cosas varias\project codeblocks c\github\proyecto-org\src\lista.c
 	<stdio.h>
 	<stdlib.h>
 	<stddef.h>
+	<lista.h>
+
+1570552642 f:\users\franc\desktop\cosas varias\project codeblocks c\github\proyecto-org\include\arbol.h
 	<lista.h>
 

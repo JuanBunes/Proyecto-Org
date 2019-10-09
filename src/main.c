@@ -1,9 +1,11 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <lista.h>
+#include "lista.h"
+#include "arbol.h"
 
 
-int main()
+
+int main2()
 {
     tLista  lista;
     crear_lista (&lista);
