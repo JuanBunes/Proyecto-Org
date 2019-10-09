@@ -34,11 +34,16 @@
 		<Compiler>
 			<Add option="-Wall" />
 		</Compiler>
-		<Unit filename="include/arbol.h" />
-		<Unit filename="include/lista.h" />
+		<Unit filename="include/arbol.h">
+			<Option compile="1" />
+			<Option link="1" />
+		</Unit>
+		<Unit filename="include/lista.h">
+			<Option compile="1" />
+			<Option link="1" />
+		</Unit>
 		<Unit filename="src/arbol.c">
 			<Option compilerVar="CC" />
-			<Option compile="0" />
 		</Unit>
 		<Unit filename="src/lista.c">
 			<Option compilerVar="CC" />

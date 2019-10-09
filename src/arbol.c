@@ -101,6 +101,19 @@ void a_eliminar(tArbol a, tNodo n, void (*fEliminar)(tElemento)){
  Los elementos almacenados en el árbol son eliminados mediante la función fEliminar parametrizada.
 **/
 void a_destruir(tArbol * a, void (*fEliminar)(tElemento)){
+    //recorre en postOrden
+    postOrden(a,a->raiz)
+
+}
+
+void postOrden(tArbol * a, tNodo n){
+
+    while(){//para cada hijo de n
+         postOrden(a,hijoActual);
+    }
+
+    a_eliminar(a,n,?);
+
 
 }
 
