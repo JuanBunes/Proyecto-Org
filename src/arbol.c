@@ -35,7 +35,7 @@ void crear_raiz(tArbol a, tElemento e){
     }
 
     tNodo nodoRaiz=(tNodo) malloc(sizeof(struct nodo));
-    crear_lista(&(nodoRaiz->hijos)); //no se como importar las operaciones de lista
+    crear_lista(&(nodoRaiz->hijos)); /*no se como importar las operaciones de lista*/
 
     nodoRaiz->elemento=e;
     nodoRaiz->padre=NULL;
@@ -63,7 +63,7 @@ tNodo a_insertar(tArbol a, tNodo np, tNodo nh, tElemento e){
     tLista hijosDeNP;
     hijosDeNP=np->hijos;
 
-    if(nh==NULL){ //Caso el hermano es nulo
+    if(nh==NULL){ /*Caso el hermano es nulo*/
         l_insertar(hijosDeNP,l_ultima(hijosDeNP),e);
     }
 

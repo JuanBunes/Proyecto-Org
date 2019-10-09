@@ -67,10 +67,9 @@ void l_eliminar(tLista l, tPosicion p, void (*fEliminar)(tElemento)){
 
     }else{
 
-        l_anterior(l,p)->siguiente = p->siguiente; //Apunto el siguiente del anterior a p, al siguiente de p
-        fEliminar(p->elemento); //Elimino el elemento de p con fEliminar
-        //LIberar espacio en memoria de la celda despues de usar su siguiente
-
+        l_anterior(l,p)->siguiente = p->siguiente;
+        fEliminar(p->elemento);
+        free(p);
 
     }
 
@@ -81,17 +80,20 @@ void l_eliminar(tLista l, tPosicion p, void (*fEliminar)(tElemento)){
 **/
 void l_destruir(tLista * l, void (*fEliminar)(tElemento)){
 
-    tPosicion nodoViajante= (tPosicion) malloc(sizeof(struct celda)); //Creo un nodo para recorrer la lista
+    tPosicion nodoViajante= (tPosicion) malloc(sizeof(struct celda));
+    nodoViajante=(l_primera(l));
+
+    tPosicion nodoEliminar= (tPosicion) malloc(sizeof(struct celda));
+
 
     while(nodoViajante->siguiente!=NULL){
 
-        fEliminar(nodoViajante->elemento); //Elimino el elemento de la celda con fEliminar
-        nodoViajante=nodoViajante->siguiente; //Le asigno el siguiente al viajante
-        //LIberar espacio en memoria de la celda despues de usar su siguiente
+        nodoEliminar=nodoViajante;
+        nodoViajante=nodoEliminar->siguiente;
+        fEliminar(nodoEliminar->elemento);
+        free(nodoEliminar);
 
     }
-
-    free(nodoViajante); //Por ultimo libero la memoria utilizada en nodoViajante
 
 }
 
