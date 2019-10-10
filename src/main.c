@@ -3,19 +3,26 @@
 #include "lista.h"
 #include "arbol.h"
 
+void fEliminar(tElemento e);
 
+void fEliminar(tElemento e){
+
+    free(e);
+
+}
 
 int main()
 {
-    /**
+
     tArbol arbol;
     crear_arbol(&arbol);
     crear_raiz(arbol,1);
     printf("inicio \n");
     printf("raiz:  %i \n",a_recuperar(arbol,a_raiz(arbol)));
 
-**/
 
+
+/*
     tLista  lista;
     crear_lista (&lista);
     lista->elemento=NULL;
@@ -50,8 +57,10 @@ int main()
     k=l_longitud(lista);
     printf("3: %i", k);
 
+    l_eliminar(lista,l_primera(lista),fEliminar);
+    num= (int*) l_recuperar( lista, lista);
+    printf("1elem: %i", *num);
 
-
-
+*/
     return 0;
 }

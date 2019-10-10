@@ -1,8 +1,9 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <stddef.h>
-#include "lista.h"
+#include "C:\Users\Matias\Documents\GitHub\Proyecto-Org\src\lista.c"
 #include "arbol.h"
+
 
 #define ARB_OPERACION_INVALIDA      10
 #define ARB_POSICION_INVALIDA       11
