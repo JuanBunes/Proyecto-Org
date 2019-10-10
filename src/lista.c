@@ -284,4 +284,4 @@ int main2()
 */
 
 
-#endif // LISTA_H_INCLUDED
+#endif

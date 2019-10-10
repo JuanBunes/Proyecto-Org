@@ -8,7 +8,7 @@
 #define ARB_POSICION_INVALIDA       11
 #define ARB_ERROR_MEMORIA           12
 
-
+void postOrden(tArbol * a, tNodo n,void (*fEliminar)(tElemento));
 
 /**
 Inicializa un árbol vacío.
@@ -59,28 +59,37 @@ tNodo a_insertar(tArbol a, tNodo np, tNodo nh, tElemento e){
     nodoInsertar->padre=np;
     crear_lista(&nodoInsertar->hijos);
 
-
     tLista hijosDeNP;
     hijosDeNP=np->hijos;
 
     if(nh==NULL){ /*Caso el hermano es nulo*/
-        l_insertar(hijosDeNP,l_ultima(hijosDeNP),e);
+        l_insertar(hijosDeNP,l_ultima(hijosDeNP),nodoInsertar);
     }
 
-    while(/**recorrer la lista hasta encontrar nh**/);
+    int encontre=0;
+    tPosicion posViajante= (tPosicion) malloc(sizeof(struct celda));
+    posViajante=(l_primera(hijosDeNP));
+    int fin=l_longitud(hijosDeNP);
 
-    if(/**no se encontro nh**/){
+    int i;
+    for(i=0;i<fin;i++){
+        if(posViajante->elemento==nh){
+            encontre=1;
+            i=fin;
+        }
+        if(encontre==0){
+            posViajante=l_siguiente(hijosDeNP,posViajante);
+        }
+    }
+
+    if(encontre==0){
         exit(ARB_POSICION_INVALIDA);
     }
-    else/**se encontro nh**/{
-
-        /**ponerlo a la izquierda de NH**/
+    else{
+        l_insertar(hijosDeNP,l_siguiente(hijosDeNP,posViajante),nodoInsertar);
     }
 
-
     return nodoInsertar;
-
-
 }
 
 
@@ -95,6 +104,61 @@ tNodo a_insertar(tArbol a, tNodo np, tNodo nh, tElemento e){
 **/
 void a_eliminar(tArbol a, tNodo n, void (*fEliminar)(tElemento)){
 
+    if(n==a_raiz(a)){
+        if(l_longitud(n->hijos)==1){
+
+            a->raiz=(l_primera(n->hijos)->elemento);
+            a_raiz(a)->padre=NULL;
+
+            fEliminar(n->elemento);
+            free(n);
+
+        }else{
+
+            exit(ARB_POSICION_INVALIDA);
+
+        }
+    }else{
+
+        if(l_longitud(n->hijos)==0){
+
+            l_destruir(&(n->hijos),fEliminar);
+            free(n);
+
+        }else{
+
+            tLista hijosDeN = (tLista) malloc(sizeof(struct celda));
+            hijosDeN = n->hijos;
+
+            tLista hijosDePadre = (tLista) malloc(sizeof(struct celda));
+            hijosDePadre = n->padre->hijos;
+
+            tPosicion posHijosN= (tPosicion) malloc(sizeof(struct celda));
+            posHijosN=(l_primera(hijosDeN));
+
+            tPosicion posHijosPadre= (tPosicion) malloc(sizeof(struct celda));
+            posHijosPadre=(l_primera(hijosDePadre));
+
+            while(posHijosPadre->elemento!=n){
+                posHijosPadre=l_siguiente(hijosDePadre,posHijosPadre);
+            }
+
+            while(posHijosN!=l_ultima(hijosDeN)){
+
+                l_insertar(hijosDePadre,posHijosPadre,posHijosN->elemento);
+                posHijosN=l_siguiente(hijosDeN,posHijosN);
+
+            }
+
+            l_insertar(hijosDePadre,posHijosPadre,posHijosN->elemento);
+
+            fEliminar(n->elemento);
+            free(n);
+
+        }
+
+    }
+
 }
 
 /**
@@ -102,19 +166,33 @@ void a_eliminar(tArbol a, tNodo n, void (*fEliminar)(tElemento)){
  Los elementos almacenados en el árbol son eliminados mediante la función fEliminar parametrizada.
 **/
 void a_destruir(tArbol * a, void (*fEliminar)(tElemento)){
-    //recorre en postOrden
-    postOrden(a,a->raiz);
+
+    postOrden(a,a_raiz(*a),fEliminar);
 
 }
 
-void postOrden(tArbol * a, tNodo n){
+void postOrden(tArbol * a, tNodo n,void (*fEliminar)(tElemento)){
 
-    while(){//para cada hijo de n
-         postOrden(a,hijoActual);
+    tLista hijosDeN = (tLista) malloc(sizeof(struct celda));
+    hijosDeN = n->hijos;
+
+    if(l_longitud(hijosDeN)!=0){
+
+        tPosicion posActual= (tPosicion) malloc(sizeof(struct celda));
+        posActual=(l_primera(hijosDeN));
+
+        tNodo hijoActual=(tNodo) malloc(sizeof(struct nodo));
+        hijoActual = posActual->elemento;
+
+        while(posActual!=l_fin(hijosDeN)){
+            postOrden(a,hijoActual,fEliminar);
+        }
+
     }
 
-    a_eliminar(a,n,?);
-
+    l_destruir(&(n->hijos),fEliminar);
+    fEliminar(n->elemento);
+    free(n);
 
 }
 
@@ -142,7 +220,7 @@ tNodo a_raiz(tArbol a){
  Obtiene y retorna una lista con los nodos hijos de N en A.
 **/
 tLista a_hijos(tArbol a, tNodo n){
-    return n->hijos; //No se si hay que crear una lista nueva.
+    return n->hijos;
 }
 
 

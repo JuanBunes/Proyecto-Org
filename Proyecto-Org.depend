@@ -60,14 +60,14 @@
 
 1570555456 source:f:\users\franc\desktop\cosas varias\project codeblocks c\github\proyecto-org\include\lista.h
 
-1570571823 source:c:\users\matias\documents\github\proyecto-org\include\arbol.h
+1570683202 source:c:\users\matias\documents\github\proyecto-org\include\arbol.h
 	<lista.h>
 
-1570577889 c:\users\matias\documents\github\proyecto-org\include\lista.h
+1570683202 c:\users\matias\documents\github\proyecto-org\include\lista.h
 
-1570577889 source:c:\users\matias\documents\github\proyecto-org\include\lista.h
+1570683202 source:c:\users\matias\documents\github\proyecto-org\include\lista.h
 
-1570656663 source:c:\users\matias\documents\github\proyecto-org\src\lista.c
+1570659059 source:c:\users\matias\documents\github\proyecto-org\src\lista.c
 	<stdio.h>
 	<stdlib.h>
 	<stddef.h>
@@ -79,6 +79,13 @@
 	"lista.h"
 	"arbol.h"
 
-1570571823 c:\users\matias\documents\github\proyecto-org\include\arbol.h
+1570683202 c:\users\matias\documents\github\proyecto-org\include\arbol.h
 	<lista.h>
+
+1570683110 source:c:\users\matias\documents\github\proyecto-org\src\arbol.c
+	<stdio.h>
+	<stdlib.h>
+	<stddef.h>
+	"lista.h"
+	"arbol.h"
 

@@ -81,4 +81,4 @@ extern tPosicion l_fin(tLista l);
 **/
 extern int l_longitud(tLista l);
 
-#endif // LISTA_H_INCLUDED
+#endif
