@@ -82,10 +82,16 @@
 1570683202 c:\users\matias\documents\github\proyecto-org\include\arbol.h
 	<lista.h>
 
-1570683482 source:c:\users\matias\documents\github\proyecto-org\src\arbol.c
+1570683962 source:c:\users\matias\documents\github\proyecto-org\src\arbol.c
 	<stdio.h>
 	<stdlib.h>
 	<stddef.h>
-	"lista.h"
+	"C:\Users\Matias\Documents\GitHub\Proyecto-Org\src\lista.c"
 	"arbol.h"
+
+1570683210 c:\users\matias\documents\github\proyecto-org\src\lista.c
+	<stdio.h>
+	<stdlib.h>
+	<stddef.h>
+	<lista.h>
 

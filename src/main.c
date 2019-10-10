@@ -16,11 +16,25 @@ int main()
 
     tArbol arbol;
     crear_arbol(&arbol);
-    crear_raiz(arbol,1);
+    int *numero1=NULL;
+    *numero1=1;
+    crear_raiz(arbol,numero1);
+
     printf("inicio \n");
-    printf("raiz:  %i \n",a_recuperar(arbol,a_raiz(arbol)));
 
+    int *devolver;
+    *devolver=(int) a_recuperar(arbol,a_raiz(arbol));
+    printf("raiz(1):  %i \n",&devolver);
 
+    int *numero2=NULL;
+    *numero2=2;
+    a_insertar(arbol,a_raiz(arbol),NULL,numero2);
+    *devolver=(int) a_recuperar( arbol , l_primera((a_hijos(arbol,a_raiz(arbol))))->elemento );
+    printf("primer hijo de raiz(2):  %i \n",&devolver);
+
+    a_eliminar(arbol,a_raiz(arbol),fEliminar);
+    *devolver=(int) a_recuperar(arbol,a_raiz(arbol));
+    printf("nueva raiz(2):  %i \n",&devolver);
 
 /*
     tLista  lista;
