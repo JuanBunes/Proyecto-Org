@@ -160,7 +160,7 @@ void a_eliminar(tArbol a, tNodo n, void (*fEliminar)(tElemento)){
     }
 
 }
-
+ha yeet
 /**
  Destruye el árbol A, eliminando cada uno de sus nodos.
  Los elementos almacenados en el árbol son eliminados mediante la función fEliminar parametrizada.
